@@ -1,0 +1,78 @@
+<div class = "h-screen bg-gray-950 w-screen">
+
+    <div class= "h-1/2 
+    w-1/2 
+    
+    flex
+    items-center">
+<button class = "
+w-72 h-20 bg-blue-300
+
+rounded ml-72
+"
+[ngClass]= "counterChosen ? 'border-red-500 border-solid border-2' : 'border-hidden'"
+(click) = "setFunctionName('Counter')">
+    Zip Counter
+</button>
+</div>
+
+<div class= "h-1/2 
+absolute
+    w-1/2 
+    flex
+    items-center
+    top-0
+    right-0"
+    >
+<button class = "
+w-72 h-20 bg-blue-300
+rounded m-auto
+mr-72
+"
+[ngClass]= "converterChosen ? 'border-red-500 border-solid border-2' : 'border-hidden'"
+
+(click) = "setFunctionName('Converter')">
+    Zip Converter
+</button>
+</div>
+
+<div *ngIf = "!chooseButtonVisible" class = "bg-red-50
+w-screen flex items-center">
+<input type = "text"
+[(ngModel)] = "inputValue"
+value = "jo"
+>
+<button
+(click) = "theFunction()" 
+>Submit Name</button>
+</div>
+
+<div 
+*ngIf = "chooseButtonVisible"
+class = "w-screen bg-red-50 flex items-center">
+<input 
+type="file" name="file" 
+class="custom-file-input
+mx-auto
+bg-green-300
+"
+  id="inputGroupFile" required (change)="csvImport ($event)"
+  accept=".csv, application/vnd.
+  openxmlformats-officedocument. spreadsheetml.sheet,
+  application/vnd.ms-excel">
+</div>
+
+<app-file-select 
+(sendValue)="say($event)"
+*ngIf="fileJSON.length"
+[fileJSON] = "fileJSON" 
+[chosenFunction] = "chosenFunction"
+[fileName] = "inputValue"
+[functionName] = "chosenFunction">
+
+</app-file-select>
+
+
+
+</div>
+
