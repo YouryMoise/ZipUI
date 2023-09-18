@@ -1,1 +1,4 @@
-Imports excel file containing individual part attendee data and returns excel file that can be used to make data visualizations using platforms such as KeplerGL.
+The purpose of this program is to output an excel file that can be used to make data visualizations using platforms such as KeplerGL.
+The two options are ZipCounter and ZipConverter.
+If you choose ZipCounter, you can enter an excel file with individual data on each line (with the ZIP code and event attended). The program will return a sheet with several columns: the ZIP code, latitude, longitude, and one column for each event type. Each cell under the event types represents the number of people from a certain ZIP code that attended a certain event type. The latitude and longitude information allows this to be submitted into KeplerGL for visualization purposes.
+If you already have a file in the format output by ZipCounter but without the coordinates, you can choose ZipConverter, which will return the same file but with columns added for latitude and longitude.
